@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="PvPIndex">
+  <title>PvPIndex</title>
+  <defs>
+
+    <!-- Glow filter: blur then merge back for a halo -->
+    <filter id="glowOuter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowInner" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Blade gradients: bright tip → deep handle -->
+    <linearGradient id="bl1" x1="17" y1="17" x2="47" y2="47" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#bbf7d0"/>
+      <stop offset="35%"  stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#14532d"/>
+    </linearGradient>
+    <linearGradient id="bl2" x1="47" y1="17" x2="17" y2="47" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#bbf7d0"/>
+      <stop offset="35%"  stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#14532d"/>
+    </linearGradient>
+
+    <!-- Diamond rim: bright top-left → deep bottom-right -->
+    <linearGradient id="rim" x1="2" y1="2" x2="62" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#4ade80"/>
+      <stop offset="55%"  stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#166534"/>
+    </linearGradient>
+
+    <!-- Diamond background: radial from top-center (light source) -->
+    <radialGradient id="bg" cx="32" cy="20" r="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#0d2010"/>
+      <stop offset="100%" stop-color="#040a05"/>
+    </radialGradient>
+
+    <!-- Clip to diamond so inner elements never escape the frame -->
+    <clipPath id="clip">
+      <path d="M32 2 L62 32 L32 62 L2 32 Z"/>
+    </clipPath>
+
+  </defs>
+
+  <!-- ─── Diamond background (gem fill) ─── -->
+  <path d="M32 2 L62 32 L32 62 L2 32 Z" fill="url(#bg)"/>
+
+  <!-- Bottom-half depth shadow -->
+  <path d="M2 32 L32 62 L62 32 Z" fill="rgba(0,0,0,0.14)"/>
+
+  <!-- ─── Outer diamond border with rim glow ─── -->
+  <path d="M32 2 L62 32 L32 62 L2 32 Z"
+        stroke="url(#rim)" stroke-width="2.5"
+        filter="url(#glowOuter)"/>
+
+  <!-- ─── Inner facet ring (gem depth cue) ─── -->
+  <path d="M32 13 L51 32 L32 51 L13 32 Z"
+        stroke="#22c55e" stroke-width="0.75" stroke-opacity="0.22"/>
+
+  <!-- Light-source facets on top face of gem -->
+  <path d="M32 2 L13 32 L32 13 Z" fill="rgba(74,222,128,0.08)"/>
+  <path d="M32 2 L32 13 L51 32 Z" fill="rgba(74,222,128,0.04)"/>
+
+  <!-- ─── Crossed sword blades (clipped to diamond) ─── -->
+  <g clip-path="url(#clip)">
+
+    <!-- Blade 1: bright tip top-left (17,17) → dark handle bottom-right (47,47) -->
+    <!-- Both endpoints lie exactly on the outer diamond ring -->
+    <line x1="17" y1="17" x2="47" y2="47"
+          stroke="url(#bl1)" stroke-width="3.5" stroke-linecap="round"
+          filter="url(#glowInner)"/>
+
+    <!-- Blade 2: bright tip top-right (47,17) → dark handle bottom-left (17,47) -->
+    <line x1="47" y1="17" x2="17" y2="47"
+          stroke="url(#bl2)" stroke-width="3.5" stroke-linecap="round"
+          filter="url(#glowInner)"/>
+
+    <!-- ─── Crossguards ─────────────────────────────────────────
+         Positioned at 40% from each blade's bright tip.
+         Guard 1 is perpendicular to blade 1 (direction -1,+1).
+         Guard 2 is perpendicular to blade 2 (direction +1,+1).
+         Together they form a subtle open-diamond (◇) in the
+         upper-centre — the guards never share a single point,
+         leaving a clean 2 px aperture between them.
+    ─────────────────────────────────────────────────────────── -->
+    <line x1="25" y1="33" x2="33" y2="25"
+          stroke="#4ade80" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="31" y1="25" x2="39" y2="33"
+          stroke="#4ade80" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Pommel caps at handle ends — ring highlights on dark fill -->
+    <circle cx="47" cy="47" r="3"
+            fill="#0a1a0b" stroke="#22c55e" stroke-width="1.25"/>
+    <circle cx="17" cy="47" r="3"
+            fill="#0a1a0b" stroke="#22c55e" stroke-width="1.25"/>
+
+    <!-- Centre clash point: bright dot where both blades cross -->
+    <circle cx="32" cy="32" r="2.5"
+            fill="#4ade80" filter="url(#glowInner)"/>
+
+  </g>
+
+</svg>
