@@ -37,15 +37,24 @@ Set this to the slug of your server on pvpindex.com (visible in the URL of your 
 ```yaml
 enabled_game_modes:
   - OVERALL
-  - VANILLA
-  - UHC
-  - CRYSTAL
+  - SWORD
+  - POT
   - NODEBUFF
+  - SOUP
+  - AXE
+  - MACE
+  - BOXING
+  - SUMO
+  - CRYSTAL
+  - UHC
+  - VANILLA
+  - SMP
+  - NETHOP
 ```
 
-Only modes in this list are tracked. Remove any you don't run — disabling a mode prevents the plugin from accepting battles that would not be eligible for ELO anyway.
+Only modes in this list are tracked and visible in the queue GUI. Remove any you don't want to run. See [Game modes](/server_owner/game-modes) for a description of each.
 
-The full set of supported modes is in `enabled_game_modes` of the default config. New modes are rolled out by PvPIndex; you only need to add the entry here to opt in.
+The default config enables all shipped modes. New modes added by PvPIndex only activate when you add the entry here.
 
 ## Battle types
 
@@ -121,6 +130,61 @@ See [Bans & federated bans](/server_mod/bans-and-federated-bans) for what each f
 debug: false
 ```
 
-Set to `true` to log every API request/response and every captured replay frame. Generates a lot of output — only use while diagnosing a problem.
+Set to `true` to log every API request/response, Velocity channel message, GUI event, and challenge lifecycle step. Generates a lot of output — only use while diagnosing a problem.
 
-> TODO: Document the new `velocity` and heartbeat sections once their fields stabilise.
+## Player state
+
+```yaml
+player_state:
+  include_ender_chest: true
+```
+
+When `true`, a player's ender-chest contents are saved before a battle and restored afterwards. Disable only if another plugin manages ender-chest persistence.
+
+## Velocity tracking (replay)
+
+This section controls movement sampling for replay files. It is **not** the cross-server Velocity proxy — see [Proxy setup](/server_owner/proxy-setup) for that.
+
+```yaml
+velocity:
+  enabled: true
+  threshold: 0.1
+  tracking_interval_ticks: 2
+```
+
+- **threshold** — minimum speed delta (blocks/tick) that gets recorded as a `velocity_change` event. Lower = smoother replays; higher = smaller files.
+- **tracking_interval_ticks** — how often velocity is sampled. `1` = every tick; `2` = every other tick. Increase to reduce CPU overhead on busy servers.
+
+## Battle batch scheduler (heartbeat)
+
+```yaml
+battle_batch:
+  enabled: true
+  flush_interval_ticks: 40
+  max_batch_size: 20
+```
+
+The plugin sends a periodic heartbeat to the API so the backend can detect mid-battle server crashes. `flush_interval_ticks: 40` fires every 2 seconds at 20 TPS. `max_batch_size` caps how many active battles are included per heartbeat.
+
+## Cleanup
+
+```yaml
+cleanup:
+  interval_ticks: 100
+```
+
+How often (in ticks, default 5 seconds) the plugin sweeps for stale arena worlds, orphaned battle sessions, and expired challenge requests. Increase on very small servers to reduce overhead; decrease on high-churn servers if worlds accumulate.
+
+## Cross-server proxy integration
+
+```yaml
+proxy:
+  enabled: false
+  secret: ""
+  heartbeat_interval_ticks: 200
+```
+
+Enable this only if you are running the **Velocity PvPIndex plugin** on your proxy for cross-server challenges and player transfers. See [Proxy setup](/server_owner/proxy-setup).
+
+- **secret** — must match the `secret` in the Velocity plugin's config.
+- **heartbeat_interval_ticks** — how often the Paper backend pings the proxy (default 10 seconds).

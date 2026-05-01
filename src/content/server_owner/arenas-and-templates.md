@@ -1,40 +1,74 @@
 # Arenas & templates
 
-PvPIndex battles take place in **arena instances** — isolated copies of an arena template that get cloned for each match and torn down afterwards. This page covers how to define templates and tune the warm pool.
+PvPIndex battles take place in **arena instances** — isolated worlds generated for each match and torn down when the battle ends. Templates define the geometry, spawn points, and generation strategy used to create those instances.
 
 ## Concepts
 
-- **Template** — a saved schematic + spawn-point definition stored under `plugins/PvPIndexBattles/arenas/`. A template is mode-agnostic; you decide which game modes can use it.
-- **Instance** — a live, in-world copy of a template generated when matchmaking pairs two players. Destroyed automatically when the battle ends.
-- **Warm pool** — a small set of pre-generated instances kept ready so players can teleport in immediately rather than wait for the world to be cloned.
+- **Template** — a named arena definition in `plugins/PvPIndexBattles/templates.yml`. Each template specifies a generation strategy, spawn points, and which game modes may use it.
+- **Instance** — a live, in-world arena generated from a template when matchmaking pairs players. Destroyed automatically when the battle ends and any leftover worlds are swept on restart.
+- **Warm pool** — a configurable number of pre-generated instances kept ready per template so players teleport in immediately rather than wait for generation.
 
-## Defining a template
+## Built-in templates
 
-> TODO: Step-by-step setup using `/pvpindex arena create <name>`, anchor selection, spawn points, and saving.
+Every supported game mode ships with a default procedural template — no asset files or manual building required:
 
-The minimal flow:
+| Template ID | Strategy | Used by default |
+| --- | --- | --- |
+| `arena_duel` | Procedural (21×21 stone-brick floor, glass walls, two iron spawn pads) | Sword, Pot, NoDebuff, Soup, Axe, Mace, Boxing, UHC, Vanilla, SMP, Nethop |
+| `arena_crystal` | Procedural Crystal (23×23 obsidian floor, taller walls for explosions) | Crystal |
+| `arena_sumo` | Procedural Sumo (9×9 raised platform, void drop = elimination) | Sumo |
 
-1. Build the arena somewhere in your world.
-2. Stand at one corner and run `/pvpindex arena setpos1`.
-3. Move to the opposite corner and run `/pvpindex arena setpos2`.
-4. Stand on each player spawn and run `/pvpindex arena addspawn <team>`.
-5. Save with `/pvpindex arena save <template-name>`.
+Enabling a game mode in `enabled_game_modes` is enough to start running matches — the correct template is selected automatically.
 
-The template is now available in the arena picker for any game mode you allow.
+## Generation strategies
 
-## Allowing a template per game mode
+Each template entry in `templates.yml` declares one of the following strategies:
 
-In `config.yml`:
+### `procedural`
+Code-built at startup and per-match. Nothing to deploy. Fastest to generate.
 
 ```yaml
-arena_templates:
-  duel-classic:
-    modes: [VANILLA, UHC, NODEBUFF]
-  crystal-cube:
-    modes: [CRYSTAL]
+templates:
+  arena_duel:
+    strategy: procedural
+    spawns:
+      - { x: 5,  y: 65, z: 0, yaw: -90.0, pitch: 0.0 }
+      - { x: -5, y: 65, z: 0, yaw:  90.0, pitch: 0.0 }
+    spectator: { x: 0, y: 70, z: 0, yaw: 0.0, pitch: 30.0 }
 ```
 
-Only the listed modes will pick this template. Omit `modes` to allow every enabled mode.
+### `procedural_crystal`
+Like `procedural` but with an obsidian floor and reinforced glass walls suitable for end-crystal explosions.
+
+### `procedural_sumo`
+Raised platform surrounded by void. A player who falls below the platform's Y level is eliminated.
+
+### `copy` *(optional)*
+Full world directory copy from `plugins/PvPIndexBattles/templates/<id>/` (must contain `level.dat` and a `region/` folder).
+
+```yaml
+templates:
+  my_custom_arena:
+    strategy: copy
+    world_path: plugins/PvPIndexBattles/templates/my_custom_arena
+    spawns:
+      - { x: 0, y: 68, z: -8, yaw: 180.0, pitch: 0.0 }
+      - { x: 0, y: 68, z:  8, yaw:   0.0, pitch: 0.0 }
+```
+
+### `schematic` *(optional)*
+JSON schematic pasted into a host world at a configurable origin.
+
+## Spawn points
+
+Every template requires at least two player spawn points. Spectator spawn is optional but recommended for moderation.
+
+```yaml
+spawns:
+  - { x: 5, y: 65, z: 0, yaw: -90.0, pitch: 0.0 }   # participant 1
+  - { x: -5, y: 65, z: 0, yaw: 90.0, pitch: 0.0 }   # participant 2
+spectator: { x: 0, y: 70, z: 0, yaw: 0.0, pitch: 30.0 }
+```
 
 ## Warm pool
 
@@ -45,15 +79,13 @@ arena_pool:
   refill_async: true
 ```
 
-Keep `warm_size_per_template` low (1–3) on small servers — each warm instance uses a copy of the template's chunks in memory. Set `refill_async: true` so re-cloning happens off the main thread after a match.
+Keep `warm_size_per_template` low (1–3) on small servers — each warm instance holds a full copy of the generated world in memory. Set `refill_async: true` so the refill after a match happens off the main thread.
 
-## Operator commands
+On startup the plugin automatically deletes any orphaned worlds with the `pvpindex_*` prefix left over from a previous crash.
 
-| Command | What it does |
-| --- | --- |
-| `/pvpindex arena list` | Show all templates and how many warm instances each has. |
-| `/pvpindex arena reload <name>` | Re-read a template from disk and recycle warm instances. |
-| `/pvpindex arena tp <name>` | Teleport you to the original template build (read-only inspection). |
-| `/pvpindex arena delete <name>` | Permanently delete a template. |
+## Common pitfalls
 
-> TODO: Add a "Common pitfalls" section: bedrock layer at y=-64, world border behaviour, light propagation in cloned chunks.
+- **Wrong Java version** — procedural generation uses modern Bukkit world APIs that require Java 21 + Paper 1.21+.
+- **World border conflicts** — if your server has a global world border set via `WorldBorder`, ensure it is large enough to contain auto-generated `pvpindex_*` worlds. A radius of 30,000,000 (the default) is fine.
+- **Plugin conflicts** — plugins that intercept `WorldCreator` or manage multi-world registration (e.g. Multiverse) can prevent arena worlds from loading. Test with suspect plugins disabled first.
+- **Light propagation** — procedurally built arenas set `doMobSpawning false`, full sunlight, and force sky-light recalculation. Custom `copy` worlds must have their own lighting baked before use.

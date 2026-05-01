@@ -30,7 +30,7 @@ Open the battle on pvpindex.com (the URL is `pvpindex.com/battles/<uuid>`) and c
 
 Replays are captured at `recording.tick_rate` Hz (default 20 Hz, vanilla tick rate). Each frame includes player positions, rotations, velocities, current item, and active potion effects. Events captured separately: `damage`, `block_break`, `block_place`, `projectile_launch`, `velocity_change`, `death`, `kill`.
 
-Local replay files live in `plugins/PvPIndexBattles/replays/<uuid>.dat` (gzip-compressed) and are kept until the battle is older than 30 days.
+Local replay files live in `plugins/PvPIndexBattles/replays/<uuid>.json` (gzip-compressed when `recording.compress: true`) and are kept until the battle is older than 30 days.
 
 ## Replay isn't loading
 
@@ -38,7 +38,7 @@ The most common cause is the file having been pruned. Battles older than 30 days
 
 If a replay you expect to exist is missing:
 
-1. Check `plugins/PvPIndexBattles/replays/` for the file.
+1. Check `plugins/PvPIndexBattles/replays/` for the `<uuid>.json` file.
 2. Check `logs/latest.log` around the battle's end timestamp for `replay save failed` lines.
 3. Confirm `recording.write_local_file: true` in your config.
 

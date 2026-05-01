@@ -1,6 +1,6 @@
 # Joining a battle
 
-This page is about being a **player** on a PvPIndex-enabled server, not running one. If you're configuring matchmaking, see [Battle queue & matchmaking](/server_owner/battle-queue-and-matchmaking).
+This page is about being a **player** on a PvPIndex-enabled server, not running one. If you're configuring matchmaking, see [Queue & matchmaking](/server_owner/queue-and-matchmaking).
 
 ## The basics
 
@@ -10,13 +10,30 @@ On a PvPIndex server, type:
 /battle
 ```
 
-A GUI opens with the active game modes. Click one and you're entered into the matchmaking queue. The plugin pairs you with another player whose ELO is close to yours; once a match is found you're teleported into an arena and the battle starts.
+A GUI opens with the active game modes. Click one and you're entered into the matchmaking queue. The plugin pairs you with another player; once a match is found you're teleported into an arena and the battle starts.
 
-To leave the queue:
+To leave the queue or forfeit an active battle:
 
 ```
 /battle leave
 ```
+
+## Challenging a specific player
+
+If you want to duel a particular player instead of queuing against a random opponent:
+
+```
+/battle challenge <player> [mode]
+```
+
+The target player receives a clickable chat message with **Accept** and **Decline** buttons. The challenge expires after 30 seconds if they don't respond.
+
+```
+/battle accept <id>      # accept an incoming challenge
+/battle decline <id>     # decline
+```
+
+On a Velocity-connected network you can challenge players on other servers — they receive the invite on their server and are transferred to yours when they accept.
 
 ## What happens during a battle
 
@@ -53,5 +70,3 @@ Even if you haven't claimed your account yet — the profile exists, it's just u
 ## Replays
 
 Click any battle on your profile to watch the replay. See [your profile](/user/your-profile) for more.
-
-> TODO: Add a section on the planned spectator mode for friends ("watch this fight live from outside the arena").
