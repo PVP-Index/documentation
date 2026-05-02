@@ -1,6 +1,6 @@
 # Proxy setup (Velocity)
 
-Running PvPIndex across multiple backend servers requires the **Velocity proxy plugin**. It enables cross-server player challenges and transparent player transfers into battles hosted on a different backend.
+Running PvPIndex across multiple backend servers requires a **proxy plugin**. This page covers the **Velocity** variant. If you use BungeeCord, see [Proxy setup (BungeeCord)](/server_owner/proxy-setup-bungeecord). For networks with multiple proxy instances, see [Multi-proxy setup](/server_owner/multi-proxy-setup).
 
 Without the proxy plugin, `/battle challenge` still works - but only for players on the same backend server.
 

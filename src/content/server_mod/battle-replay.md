@@ -42,4 +42,4 @@ If a replay you expect to exist is missing:
 2. Check `logs/latest.log` around the battle's end timestamp for `replay save failed` lines.
 3. Confirm `recording.write_local_file: true` in your config.
 
-> TODO: Document the `/pvpmod replay download <uuid>` flow once it ships, for owners who want to archive replays externally.
+The `/pvpmod replay download <uuid>` command for exporting replay files externally is not yet available. When it ships it will be documented here.

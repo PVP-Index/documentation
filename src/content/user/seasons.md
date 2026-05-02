@@ -51,4 +51,4 @@ On your profile under **Season standings** you can see your final rank and ELO f
 
 If you skip a season entirely, your ELO from the previous season is still soft-reset when that season ends - there is no "freeze" mechanic. Your ELO going into the next season you play is whatever the chain of soft-resets has produced.
 
-> TODO: Document the planned "season rewards" feature (cosmetic flair for top finishers).
+Seasonal cosmetic rewards for top finishers are planned. Details will be published here when the feature launches.
