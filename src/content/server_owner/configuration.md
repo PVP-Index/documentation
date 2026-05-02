@@ -1,6 +1,6 @@
 # Configuration
 
-Every setting lives in `plugins/PvPIndexBattles/config.yml`. This page covers the keys you are most likely to change. Defaults are sensible — most owners only set `api.api_key`, `server.id`, and a few `enabled_*` lists.
+Every setting lives in `plugins/PvPIndexBattles/config.yml`. This page covers the keys you are most likely to change. Defaults are sensible - most owners only set `api.api_key`, `server.id`, and a few `enabled_*` lists.
 
 ## API connection
 
@@ -17,11 +17,11 @@ api:
   submit_confirmed_only: false
 ```
 
-- **api_key** — your server's bearer token. See [Getting an API key](/server_owner/getting-an-api-key).
-- **timeout** — seconds to wait for any HTTP request before giving up.
-- **retry_attempts / retry_*** — exponential backoff for in-memory retries. Defaults: 5 s, 15 s, 45 s.
-- **persistent_retry_interval_seconds** — when in-memory retries are exhausted the payload is persisted to `plugins/PvPIndexBattles/failed-submissions/<uuid>.json` and re-sent every N seconds. Set to `0` to disable; admins can also force a retry with `/pvpindex retryfailed`.
-- **submit_confirmed_only** — when `true`, the plugin only POSTs battles after they have been internally confirmed (e.g. survived your `anti_abuse.minimum_battle_duration_seconds` window).
+- **api_key** - your server's bearer token. See [Getting an API key](/server_owner/getting-an-api-key).
+- **timeout** - seconds to wait for any HTTP request before giving up.
+- **retry_attempts / retry_*** - exponential backoff for in-memory retries. Defaults: 5 s, 15 s, 45 s.
+- **persistent_retry_interval_seconds** - when in-memory retries are exhausted the payload is persisted to `plugins/PvPIndexBattles/failed-submissions/<uuid>.json` and re-sent every N seconds. Set to `0` to disable; admins can also force a retry with `/pvpindex retryfailed`.
+- **submit_confirmed_only** - when `true`, the plugin only POSTs battles after they have been internally confirmed (e.g. survived your `anti_abuse.minimum_battle_duration_seconds` window).
 
 ## Server identity
 
@@ -83,7 +83,7 @@ recording:
   write_local_file: true
 ```
 
-`tick_rate: 20` matches vanilla and gives the smoothest replays. Drop to `10` if you have many concurrent battles and want to halve recording overhead. `max_frames` caps memory per participant — the default is roughly two hours.
+`tick_rate: 20` matches vanilla and gives the smoothest replays. Drop to `10` if you have many concurrent battles and want to halve recording overhead. `max_frames` caps memory per participant - the default is roughly two hours.
 
 ## Auto-submit & anti-abuse
 
@@ -130,7 +130,7 @@ See [Bans & federated bans](/server_mod/bans-and-federated-bans) for what each f
 debug: false
 ```
 
-Set to `true` to log every API request/response, Velocity channel message, GUI event, and challenge lifecycle step. Generates a lot of output — only use while diagnosing a problem.
+Set to `true` to log every API request/response, Velocity channel message, GUI event, and challenge lifecycle step. Generates a lot of output - only use while diagnosing a problem.
 
 ## Player state
 
@@ -143,7 +143,7 @@ When `true`, a player's ender-chest contents are saved before a battle and resto
 
 ## Velocity tracking (replay)
 
-This section controls movement sampling for replay files. It is **not** the cross-server Velocity proxy — see [Proxy setup](/server_owner/proxy-setup) for that.
+This section controls movement sampling for replay files. It is **not** the cross-server Velocity proxy - see [Proxy setup](/server_owner/proxy-setup) for that.
 
 ```yaml
 velocity:
@@ -152,8 +152,8 @@ velocity:
   tracking_interval_ticks: 2
 ```
 
-- **threshold** — minimum speed delta (blocks/tick) that gets recorded as a `velocity_change` event. Lower = smoother replays; higher = smaller files.
-- **tracking_interval_ticks** — how often velocity is sampled. `1` = every tick; `2` = every other tick. Increase to reduce CPU overhead on busy servers.
+- **threshold** - minimum speed delta (blocks/tick) that gets recorded as a `velocity_change` event. Lower = smoother replays; higher = smaller files.
+- **tracking_interval_ticks** - how often velocity is sampled. `1` = every tick; `2` = every other tick. Increase to reduce CPU overhead on busy servers.
 
 ## Battle batch scheduler (heartbeat)
 
@@ -186,5 +186,5 @@ proxy:
 
 Enable this only if you are running the **Velocity PvPIndex plugin** on your proxy for cross-server challenges and player transfers. See [Proxy setup](/server_owner/proxy-setup).
 
-- **secret** — must match the `secret` in the Velocity plugin's config.
-- **heartbeat_interval_ticks** — how often the Paper backend pings the proxy (default 10 seconds).
+- **secret** - must match the `secret` in the Velocity plugin's config.
+- **heartbeat_interval_ticks** - how often the Paper backend pings the proxy (default 10 seconds).

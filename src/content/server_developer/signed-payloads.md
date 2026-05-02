@@ -1,6 +1,6 @@
 # Signed payloads
 
-PvPIndex's battle ingestion can verify that a `POST /battles` payload was produced by the holder of the API key — not just sent with one. This is done with a small **HMAC-SHA256** signature over a canonicalised JSON form of the body.
+PvPIndex's battle ingestion can verify that a `POST /battles` payload was produced by the holder of the API key - not just sent with one. This is done with a small **HMAC-SHA256** signature over a canonicalised JSON form of the body.
 
 The implementation is open source and auditable: [`pvpindex/battle-validator`](https://github.com/PVP-Index/battle-validator) (MIT). The same code runs in the plugin and in the API.
 
@@ -8,7 +8,7 @@ The implementation is open source and auditable: [`pvpindex/battle-validator`](h
 
 Signing is enforced when the API is configured with `PVPINDEX_REQUIRE_SIGNATURE=true`. If you self-host the API or are running against a hardened tenant, signed payloads will be **required**; unsigned requests are rejected with `401`.
 
-For the public hosted API the default is currently `false`, but signing is **strongly recommended** — it is the only way to defend against a stolen key being used to spoof a battle from a different machine.
+For the public hosted API the default is currently `false`, but signing is **strongly recommended** - it is the only way to defend against a stolen key being used to spoof a battle from a different machine.
 
 ## How signing works
 
@@ -37,7 +37,7 @@ $signature = $signer->sign($body, $apiToken);
 //   Authorization:        Bearer $apiToken
 ```
 
-The signer's source is ~80 lines of Composer-installable code in `apps/battle-validator/src/Crypto/`. It has zero Laravel dependencies — you can call it from any PHP project, or port it to any language with HMAC-SHA256.
+The signer's source is ~80 lines of Composer-installable code in `apps/battle-validator/src/Crypto/`. It has zero Laravel dependencies - you can call it from any PHP project, or port it to any language with HMAC-SHA256.
 
 ## Signing from non-PHP clients
 
@@ -58,6 +58,6 @@ Run your implementation against the test vectors in `apps/battle-validator/tests
 | 401 | `signature_missing` | Header absent and signing is enforced. |
 | 401 | `signature_malformed` | Header is not 64 hex chars. |
 | 401 | `signature_expired` | `signed_at` outside the 300 s window. |
-| 401 | `signature_mismatch` | HMAC did not match — wrong secret or tampered body. |
+| 401 | `signature_mismatch` | HMAC did not match - wrong secret or tampered body. |
 
 > TODO: Add a JavaScript / Kotlin port snippet once those reference clients land.

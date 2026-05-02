@@ -2,12 +2,12 @@
 
 The PvPIndex plugin provides a [PlaceholderAPI](https://github.com/PlaceholderAPI/PlaceholderAPI) expansion when PlaceholderAPI is installed alongside the plugin. All placeholders use the `pvpindex_` namespace.
 
-PlaceholderAPI is an **optional** soft-dependency — the plugin loads and works normally without it.
+PlaceholderAPI is an **optional** soft-dependency - the plugin loads and works normally without it.
 
 ## Installation
 
 1. Install PlaceholderAPI on your Paper server.
-2. Start the server with PvPIndex installed — the expansion registers itself automatically. No `/papi ecloud` download is required.
+2. Start the server with PvPIndex installed - the expansion registers itself automatically. No `/papi ecloud` download is required.
 
 ## Live state
 
@@ -59,5 +59,5 @@ These counters are tracked in memory since the plugin loaded. They are reset whe
 header: |-
   &6&lPvPIndex
   ELO: &e%pvpindex_elo%  &7|  Rank: &e%pvpindex_rank%
-  %pvpindex_in_battle% &8— %pvpindex_queued_mode%
+  %pvpindex_in_battle% &8- %pvpindex_queued_mode%
 ```

@@ -1,6 +1,6 @@
 # Game modes
 
-PvPIndex ships **14 game modes** out of the box. Each mode has its own kit, arena template, and ruleset. All use procedural arena generation by default — no assets are required to run any of them.
+PvPIndex ships **14 game modes** out of the box. Each mode has its own kit, arena template, and ruleset. All use procedural arena generation by default - no assets are required to run any of them.
 
 Enable only the modes you want in `config.yml`:
 
@@ -16,7 +16,7 @@ enabled_game_modes:
 
 ## Sword
 
-Classic 1v1 duel. Iron sword plus golden apples — pure aiming and timing.
+Classic 1v1 duel. Iron sword plus golden apples - pure aiming and timing.
 
 | Setting | Value |
 | --- | --- |
@@ -30,7 +30,7 @@ Classic 1v1 duel. Iron sword plus golden apples — pure aiming and timing.
 
 ## Pot (Splash Pots)
 
-Netherite sword with splash healing potions. Natural regeneration is disabled — all healing comes from pots.
+Netherite sword with splash healing potions. Natural regeneration is disabled - all healing comes from pots.
 
 | Setting | Value |
 | --- | --- |
@@ -99,7 +99,7 @@ Fast-paced healing with mushroom stew. Each bowl of stew heals instantly; carry 
 
 ## Boxing
 
-Pure movement and skill — no weapons, no armour, bare fists only.
+Pure movement and skill - no weapons, no armour, bare fists only.
 
 | Setting | Value |
 | --- | --- |
@@ -116,7 +116,7 @@ Knockback stick on a raised 9×9 platform. Falling off the platform is an automa
 
 | Setting | Value |
 | --- | --- |
-| Arena | `arena_sumo` (procedural — raised platform over void) |
+| Arena | `arena_sumo` (procedural - raised platform over void) |
 | Kit | Knockback stick, no armour |
 | Win condition | Knock opponent off platform |
 | Time limit | 5 min |
@@ -129,7 +129,7 @@ End-crystal PvP with obsidian placement. Block break and placement are allowed; 
 
 | Setting | Value |
 | --- | --- |
-| Arena | `arena_crystal` (procedural — obsidian floor, reinforced walls) |
+| Arena | `arena_crystal` (procedural - obsidian floor, reinforced walls) |
 | Kit | Full crystal PvP kit: end crystals, obsidian, totem, netherite armour + elytra |
 | Natural regen | Yes |
 | Block break/place | Yes |
@@ -139,7 +139,7 @@ End-crystal PvP with obsidian placement. Block break and placement are allowed; 
 
 ## UHC
 
-Ultra Hardcore — no natural regeneration. Mining and crafting are allowed; you must heal through apples or golden heads.
+Ultra Hardcore - no natural regeneration. Mining and crafting are allowed; you must heal through apples or golden heads.
 
 | Setting | Value |
 | --- | --- |
@@ -180,7 +180,7 @@ Survival-multiplayer-style combat using typical SMP gear loadouts.
 
 ## Nethop
 
-Nether-themed combat — nether gear and a nether-aesthetic arena.
+Nether-themed combat - nether gear and a nether-aesthetic arena.
 
 | Setting | Value |
 | --- | --- |
@@ -193,4 +193,4 @@ Nether-themed combat — nether gear and a nether-aesthetic arena.
 
 ## Overall
 
-A virtual aggregate mode representing a player's combined performance across all other modes. It does not have its own queue or arena — the ELO for OVERALL is derived from the weighted average of all other mode ELOs, weighted by battles played. Players cannot queue directly for OVERALL.
+A virtual aggregate mode representing a player's combined performance across all other modes. It does not have its own queue or arena - the ELO for OVERALL is derived from the weighted average of all other mode ELOs, weighted by battles played. Players cannot queue directly for OVERALL.

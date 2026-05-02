@@ -2,7 +2,7 @@
 
 Running PvPIndex across multiple backend servers requires the **Velocity proxy plugin**. It enables cross-server player challenges and transparent player transfers into battles hosted on a different backend.
 
-Without the proxy plugin, `/battle challenge` still works — but only for players on the same backend server.
+Without the proxy plugin, `/battle challenge` still works - but only for players on the same backend server.
 
 ## Architecture
 
@@ -19,7 +19,7 @@ Player A (server-1) ──/battle challenge PlayerB──▶ Velocity proxy
                                                     Battle starts
 ```
 
-## Step 1 — install the Velocity JAR
+## Step 1 - install the Velocity JAR
 
 1. Download `PvPIndexBattles-velocity-<version>.jar` from the release page.
 2. Place it in your Velocity proxy's `plugins/` directory.
@@ -32,9 +32,9 @@ debug = false
 heartbeat_interval_ticks = 200
 ```
 
-Copy the `secret` value — you'll need it in the next step.
+Copy the `secret` value - you'll need it in the next step.
 
-## Step 2 — configure each Paper backend
+## Step 2 - configure each Paper backend
 
 In `plugins/PvPIndexBattles/config.yml` on every Paper server that should participate:
 
@@ -47,9 +47,9 @@ proxy:
 
 Restart each Paper server after saving.
 
-## Step 3 — verify the connection
+## Step 3 - verify the connection
 
-Run `/vpvpindex status` on the Velocity proxy console. You should see each connected backend listed with its player count. If a backend is missing, check that it registered the `pvpindex:proxy` channel — look for `[PvPIndexBattles] Proxy channel registered` in the backend's log.
+Run `/vpvpindex status` on the Velocity proxy console. You should see each connected backend listed with its player count. If a backend is missing, check that it registered the `pvpindex:proxy` channel - look for `[PvPIndexBattles] Proxy channel registered` in the backend's log.
 
 Enable `debug: true` on both sides to log every plugin message for troubleshooting.
 
@@ -70,9 +70,9 @@ When the Velocity plugin is running, the `/battle challenge <TAB>` completion on
 When a cross-server challenge is accepted:
 
 1. Velocity transfers the accepting player to the challenger's backend.
-2. The `ChallengeArrivalListener` on the receiving backend waits for the player to fully load before starting the battle — this prevents race conditions where the battle begins before the player's inventory and health are initialised.
+2. The `ChallengeArrivalListener` on the receiving backend waits for the player to fully load before starting the battle - this prevents race conditions where the battle begins before the player's inventory and health are initialised.
 3. If the transfer fails or the player disconnects during transfer, the challenge is cancelled and both players are notified.
 
 ## Security
 
-All plugin messages on the `pvpindex:proxy` channel are validated against the shared `secret` via HMAC. A misconfigured or missing secret means messages are silently ignored — the channel is not open to arbitrary plugin messages from untrusted backends.
+All plugin messages on the `pvpindex:proxy` channel are validated against the shared `secret` via HMAC. A misconfigured or missing secret means messages are silently ignored - the channel is not open to arbitrary plugin messages from untrusted backends.

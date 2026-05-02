@@ -4,7 +4,7 @@ The PvPIndex plugin ships **two JARs**: a Paper backend plugin and an optional V
 
 ## Prerequisites
 
-- A running Paper-based Minecraft server (Paper 1.21.3+, or any fork that implements Paper API 26.1 — Purpur, Folia, etc.).
+- A running Paper-based Minecraft server (Paper 1.21.3+, or any fork that implements Paper API 26.1 - Purpur, Folia, etc.).
 - Java 21 or newer on the server.
 - An approved API key (see [Getting an API key](/server_owner/getting-an-api-key)).
 
@@ -12,7 +12,7 @@ The PvPIndex plugin ships **two JARs**: a Paper backend plugin and an optional V
 
 1. Download `PvPIndexBattles-<version>.jar` from your server detail page on pvpindex.com (or the GitHub Releases page).
 2. Place it in your server's `plugins/` directory.
-3. Restart the server (or use `/reload confirm` if you must — full restart is safer).
+3. Restart the server (or use `/reload confirm` if you must - full restart is safer).
 
 On first start the plugin generates `plugins/PvPIndexBattles/config.yml` with sensible defaults. Submissions are **disabled** until you set your API key.
 

@@ -1,6 +1,6 @@
 # Authentication
 
-Authentication is required for everything except the public read endpoints documented in [Public API](/server_developer/public-api). PvPIndex uses **Laravel Sanctum** Bearer tokens.
+Authentication is required for everything except the public read endpoints documented in [API Reference](/api_reference/public-api). PvPIndex uses **Laravel Sanctum** Bearer tokens.
 
 ## Token types
 
@@ -8,7 +8,7 @@ There are two flavours of token, both delivered as `Authorization: Bearer <token
 
 | Token | Issued by | Used for |
 | --- | --- | --- |
-| **User token** | `POST /auth/login` | Acting as a website user — leaving comments, claiming a Minecraft account, accessing the moderator dashboard. |
+| **User token** | `POST /auth/login` | Acting as a website user - leaving comments, claiming a Minecraft account, accessing the moderator dashboard. |
 | **Server token** | API application approval | Submitting battles and confirming/disputing them on behalf of a server. |
 
 A user token cannot submit battles, and a server token cannot post forum comments. The two are isolated by middleware on every route.
@@ -63,4 +63,3 @@ User tokens rotate on every `POST /auth/login`. Old tokens remain valid until yo
 
 Server tokens rotate from your server detail page → **Rotate API key**. The previous token is invalidated immediately.
 
-> TODO: Document scopes and the planned per-server multi-token feature.

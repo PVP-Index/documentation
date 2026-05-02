@@ -1,11 +1,11 @@
 # Seasons
 
-A **season** is a fixed window of time — typically about three months — during which battles count toward a season-specific leaderboard. At the end of the season, final standings are snapshotted, ELO is partially reset, and a new season begins.
+A **season** is a fixed window of time - typically about three months - during which battles count toward a season-specific leaderboard. At the end of the season, final standings are snapshotted, ELO is partially reset, and a new season begins.
 
 ## What a season is for
 
 - A clean, comparable record of how each player did over a defined period.
-- A reason for top players to keep fighting — a long-running ladder eventually goes stale; a season resets the field.
+- A reason for top players to keep fighting - a long-running ladder eventually goes stale; a season resets the field.
 - A place to award seasonal achievements ("Top 10 Crystal PvP, Season 4").
 
 ## Active season
@@ -41,7 +41,7 @@ Examples:
 | 2000 | 1750 |
 | 2400 | 2050 |
 
-So if you ended a season at 1900, you start the next at ~1675 — still well ahead of a brand-new account at 1200, but not so far that nobody else has a chance.
+So if you ended a season at 1900, you start the next at ~1675 - still well ahead of a brand-new account at 1200, but not so far that nobody else has a chance.
 
 ## Your season standings
 
@@ -49,6 +49,6 @@ On your profile under **Season standings** you can see your final rank and ELO f
 
 ## Skipping a season
 
-If you skip a season entirely, your ELO from the previous season is still soft-reset when that season ends — there is no "freeze" mechanic. Your ELO going into the next season you play is whatever the chain of soft-resets has produced.
+If you skip a season entirely, your ELO from the previous season is still soft-reset when that season ends - there is no "freeze" mechanic. Your ELO going into the next season you play is whatever the chain of soft-resets has produced.
 
 > TODO: Document the planned "season rewards" feature (cosmetic flair for top finishers).

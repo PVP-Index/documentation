@@ -1,6 +1,6 @@
 # Claiming your Minecraft account
 
-Anyone who has ever fought a battle on a verified PvPIndex server already has a **player profile** on the website — even if they've never registered. Claiming the profile links it to your website account so you can edit it, choose what's public, and see private stats.
+Anyone who has ever fought a battle on a verified PvPIndex server already has a **player profile** on the website - even if they've never registered. Claiming the profile links it to your website account so you can edit it, choose what's public, and see private stats.
 
 ## Why claim?
 
@@ -9,15 +9,15 @@ Anyone who has ever fought a battle on a verified PvPIndex server already has a 
 - You unlock the **Profile settings** page (bio, social links, profile-card theme).
 - You can opt out of being featured on the public leaderboard if you want.
 
-## Step 1 — start the claim from the website
+## Step 1 - start the claim from the website
 
 1. Log into pvpindex.com.
 2. Visit `pvpindex.com/players/<your-username>`.
-3. Click **This is me — claim profile**.
+3. Click **This is me - claim profile**.
 
 You'll be shown a one-time **claim code**, e.g. `7H4D-9KPW`. The code is valid for 10 minutes.
 
-## Step 2 — verify in-game
+## Step 2 - verify in-game
 
 Join any verified PvPIndex server with the same Minecraft account, and run:
 
@@ -29,7 +29,7 @@ If the code matches and your account on that server has the same UUID as the pla
 
 ## What if I'm on a server that isn't verified?
 
-Only verified servers can verify a claim — they're the only ones we trust the username/UUID mapping from. If your favourite server isn't verified yet, ask the owner to apply. See [Getting an API key](/server_owner/getting-an-api-key) (the doc is owner-facing, but the application step is what creates a verified server).
+Only verified servers can verify a claim - they're the only ones we trust the username/UUID mapping from. If your favourite server isn't verified yet, ask the owner to apply. See [Getting an API key](/server_owner/getting-an-api-key) (the doc is owner-facing, but the application step is what creates a verified server).
 
 ## I claimed the wrong profile
 

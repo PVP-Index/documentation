@@ -1,16 +1,16 @@
 # Arenas & templates
 
-PvPIndex battles take place in **arena instances** — isolated worlds generated for each match and torn down when the battle ends. Templates define the geometry, spawn points, and generation strategy used to create those instances.
+PvPIndex battles take place in **arena instances** - isolated worlds generated for each match and torn down when the battle ends. Templates define the geometry, spawn points, and generation strategy used to create those instances.
 
 ## Concepts
 
-- **Template** — a named arena definition in `plugins/PvPIndexBattles/templates.yml`. Each template specifies a generation strategy, spawn points, and which game modes may use it.
-- **Instance** — a live, in-world arena generated from a template when matchmaking pairs players. Destroyed automatically when the battle ends and any leftover worlds are swept on restart.
-- **Warm pool** — a configurable number of pre-generated instances kept ready per template so players teleport in immediately rather than wait for generation.
+- **Template** - a named arena definition in `plugins/PvPIndexBattles/templates.yml`. Each template specifies a generation strategy, spawn points, and which game modes may use it.
+- **Instance** - a live, in-world arena generated from a template when matchmaking pairs players. Destroyed automatically when the battle ends and any leftover worlds are swept on restart.
+- **Warm pool** - a configurable number of pre-generated instances kept ready per template so players teleport in immediately rather than wait for generation.
 
 ## Built-in templates
 
-Every supported game mode ships with a default procedural template — no asset files or manual building required:
+Every supported game mode ships with a default procedural template - no asset files or manual building required:
 
 | Template ID | Strategy | Used by default |
 | --- | --- | --- |
@@ -18,7 +18,7 @@ Every supported game mode ships with a default procedural template — no asset 
 | `arena_crystal` | Procedural Crystal (23×23 obsidian floor, taller walls for explosions) | Crystal |
 | `arena_sumo` | Procedural Sumo (9×9 raised platform, void drop = elimination) | Sumo |
 
-Enabling a game mode in `enabled_game_modes` is enough to start running matches — the correct template is selected automatically.
+Enabling a game mode in `enabled_game_modes` is enough to start running matches - the correct template is selected automatically.
 
 ## Generation strategies
 
@@ -79,13 +79,13 @@ arena_pool:
   refill_async: true
 ```
 
-Keep `warm_size_per_template` low (1–3) on small servers — each warm instance holds a full copy of the generated world in memory. Set `refill_async: true` so the refill after a match happens off the main thread.
+Keep `warm_size_per_template` low (1–3) on small servers - each warm instance holds a full copy of the generated world in memory. Set `refill_async: true` so the refill after a match happens off the main thread.
 
 On startup the plugin automatically deletes any orphaned worlds with the `pvpindex_*` prefix left over from a previous crash.
 
 ## Common pitfalls
 
-- **Wrong Java version** — procedural generation uses modern Bukkit world APIs that require Java 21 + Paper 1.21+.
-- **World border conflicts** — if your server has a global world border set via `WorldBorder`, ensure it is large enough to contain auto-generated `pvpindex_*` worlds. A radius of 30,000,000 (the default) is fine.
-- **Plugin conflicts** — plugins that intercept `WorldCreator` or manage multi-world registration (e.g. Multiverse) can prevent arena worlds from loading. Test with suspect plugins disabled first.
-- **Light propagation** — procedurally built arenas set `doMobSpawning false`, full sunlight, and force sky-light recalculation. Custom `copy` worlds must have their own lighting baked before use.
+- **Wrong Java version** - procedural generation uses modern Bukkit world APIs that require Java 21 + Paper 1.21+.
+- **World border conflicts** - if your server has a global world border set via `WorldBorder`, ensure it is large enough to contain auto-generated `pvpindex_*` worlds. A radius of 30,000,000 (the default) is fine.
+- **Plugin conflicts** - plugins that intercept `WorldCreator` or manage multi-world registration (e.g. Multiverse) can prevent arena worlds from loading. Test with suspect plugins disabled first.
+- **Light propagation** - procedurally built arenas set `doMobSpawning false`, full sunlight, and force sky-light recalculation. Custom `copy` worlds must have their own lighting baked before use.

@@ -33,8 +33,8 @@ moderation:
     sync_interval_seconds: 300
 ```
 
-- **enabled** — when `true`, any ban you issue with `/pvpmod ban -federated <player> <duration> <reason>` is published to PvPIndex. The original ban stays local; the federation copy is just a network signal.
-- **enforce_inbound** — when `true`, your server pulls the federated ban list every `sync_interval_seconds` and blocks logins from anyone on it. **Off by default** — bans never silently appear on your server unless you explicitly opt in.
+- **enabled** - when `true`, any ban you issue with `/pvpmod ban -federated <player> <duration> <reason>` is published to PvPIndex. The original ban stays local; the federation copy is just a network signal.
+- **enforce_inbound** - when `true`, your server pulls the federated ban list every `sync_interval_seconds` and blocks logins from anyone on it. **Off by default** - bans never silently appear on your server unless you explicitly opt in.
 
 ## Why federation is opt-in on both sides
 
@@ -46,7 +46,7 @@ Different communities have different tolerance for the same offence. PvPIndex's 
 /pvpmod ban -federated <player> perm <reason>
 ```
 
-The `-federated` flag is required even if you have `enabled: true` — it must be intentional per ban. Federated bans of less than 24 hours are rejected by the API as too low-signal to be worth syncing.
+The `-federated` flag is required even if you have `enabled: true` - it must be intentional per ban. Federated bans of less than 24 hours are rejected by the API as too low-signal to be worth syncing.
 
 ## Auditing federated decisions
 

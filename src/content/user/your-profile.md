@@ -42,7 +42,7 @@ Under **Account settings → Privacy** you can:
 - Hide your battle history from logged-out visitors.
 - Disable forum DMs.
 
-Hiding does **not** retroactively remove your data — just controls who can see it.
+Hiding does **not** retroactively remove your data - just controls who can see it.
 
 ## Sharing your profile
 

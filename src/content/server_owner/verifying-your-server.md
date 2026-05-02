@@ -1,6 +1,6 @@
 # Verifying your server
 
-Every server has a **trust score** between 0 and 100. The trust score is multiplied into every ELO change your battles produce — and battles from **unverified servers (`trust_score = 0`) award no ELO at all**. This is what keeps fake servers from inflating the global leaderboard.
+Every server has a **trust score** between 0 and 100. The trust score is multiplied into every ELO change your battles produce - and battles from **unverified servers (`trust_score = 0`) award no ELO at all**. This is what keeps fake servers from inflating the global leaderboard.
 
 ## How trust is earned
 
@@ -20,7 +20,7 @@ Open your server's detail page on pvpindex.com. The trust score is shown next to
 | Range | Pill | Effect |
 | --- | --- | --- |
 | 0 | red **unverified** | Battles record but produce 0 ELO change |
-| 1–40 | amber **probationary** | ELO scaled down — small contributions only |
+| 1–40 | amber **probationary** | ELO scaled down - small contributions only |
 | 41–80 | green **verified** | Full-trust ELO contributions |
 | 81–100 | blue **flagship** | Same ELO weight as verified; eligible for sponsored placements |
 
@@ -32,7 +32,7 @@ Battles from a `trust_score = 0` server are still:
 - Visible to players on their profile pages.
 - Eligible for replay and dispute.
 
-They simply do not move anyone's ELO until your server is verified. After verification, **prior battles are not retroactively scored** — the rule is forward-looking only.
+They simply do not move anyone's ELO until your server is verified. After verification, **prior battles are not retroactively scored** - the rule is forward-looking only.
 
 ## Speeding up verification
 

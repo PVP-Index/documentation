@@ -1,6 +1,6 @@
 # Creating an account
 
-You don't need an account to view leaderboards, battles, or player profiles on PvPIndex — everything public is, well, public. You **do** need an account to:
+You don't need an account to view leaderboards, battles, or player profiles on PvPIndex - everything public is, well, public. You **do** need an account to:
 
 - Claim your Minecraft player profile (so it links to "you" instead of just a UUID).
 - Comment on disputed battles.
@@ -10,7 +10,7 @@ You don't need an account to view leaderboards, battles, or player profiles on P
 
 1. Visit [pvpindex.com/register](https://pvpindex.com/register).
 2. Pick a username, an email address, and a password.
-3. Submit. You're logged in immediately — no email verification step right now.
+3. Submit. You're logged in immediately - no email verification step right now.
 
 The username you pick on the website is **independent** of your Minecraft username. You can claim a Minecraft profile to link the two.
 
@@ -32,7 +32,7 @@ Hit the **Forgot password** link on the login form. A reset link is emailed to t
 
 ## Changing your email or password
 
-Once logged in, click your avatar (top right) → **Account settings**. Email changes do not currently require re-verification — pick a mailbox you actually own.
+Once logged in, click your avatar (top right) → **Account settings**. Email changes do not currently require re-verification - pick a mailbox you actually own.
 
 ## Deleting your account
 

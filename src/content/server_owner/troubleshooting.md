@@ -6,7 +6,7 @@ This page collects the most common problems server owners run into, and what to 
 
 The plugin saves a copy of every payload it tries to send. Check, in order:
 
-1. **Is the plugin enabled?** Run `/plugins` in console — `PvPIndexBattles` should be green.
+1. **Is the plugin enabled?** Run `/plugins` in console - `PvPIndexBattles` should be green.
 2. **Is your API key correct?** A wrong key produces `401 Unauthorized` lines in `logs/latest.log`.
 3. **Is your server verified?** An `is_verified=false` server still records battles but they show no ELO change. See [Verifying your server](/server_owner/verifying-your-server).
 4. **Are battles being filtered?** Battles shorter than `anti_abuse.minimum_battle_duration_seconds` are silently dropped. Check the duration of the battles you expect to see.
@@ -45,9 +45,9 @@ Reduce `recording.tick_rate` from `20` to `10`, or lower `recording.max_frames`.
 
 Check `logs/latest.log` for a red stack trace. The most common causes:
 
-- **Wrong server flavour** — the plugin requires Paper API 26.1+. Spigot is not supported.
-- **Java version** — Paper 1.21+ requires Java 21. `java -version` should print `21.x`.
-- **Conflicting world-edit / region plugins** — these can intercept the world clone calls used by the arena pool. Disable suspect plugins one at a time.
+- **Wrong server flavour** - the plugin requires Paper API 26.1+. Spigot is not supported.
+- **Java version** - Paper 1.21+ requires Java 21. `java -version` should print `21.x`.
+- **Conflicting world-edit / region plugins** - these can intercept the world clone calls used by the arena pool. Disable suspect plugins one at a time.
 
 ## Where to ask for help
 

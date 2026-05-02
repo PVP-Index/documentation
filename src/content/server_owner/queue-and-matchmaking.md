@@ -4,7 +4,7 @@ This page covers how the queue GUI works, how battles are started, and the confi
 
 ## How the queue works
 
-Players join the queue by running `/battle` (opens the mode-picker GUI) or `/battle challenge <player>` (direct duel). The queue is **per game mode** — players in the Sword queue are only matched against other players in the Sword queue.
+Players join the queue by running `/battle` (opens the mode-picker GUI) or `/battle challenge <player>` (direct duel). The queue is **per game mode** - players in the Sword queue are only matched against other players in the Sword queue.
 
 When two players are in the same queue:
 
@@ -47,7 +47,7 @@ The target receives a clickable chat message:
 
 Challenges expire after 30 seconds (configurable in `gui.yml`). Only one pending challenge per pair of players is allowed.
 
-On a Velocity-connected network, `/battle challenge` works across servers — see [Proxy setup](/server_owner/proxy-setup).
+On a Velocity-connected network, `/battle challenge` works across servers - see [Proxy setup](/server_owner/proxy-setup).
 
 ## Permissions
 
@@ -74,7 +74,7 @@ enabled_battle_types:
   - CLAN_GUILD_BATTLE
 ```
 
-`PRACTICE_BATTLE` is recorded but awards **no ELO**. `TOURNAMENT_MATCH` and `CLAN_GUILD_BATTLE` require custom integration — they are not started through the normal queue GUI.
+`PRACTICE_BATTLE` is recorded but awards **no ELO**. `TOURNAMENT_MATCH` and `CLAN_GUILD_BATTLE` require custom integration - they are not started through the normal queue GUI.
 
 ## Player state restore
 
@@ -88,4 +88,4 @@ When a battle ends (or is cancelled), every player's original state is restored:
 - Game mode
 - XP level
 
-State is also written to `plugins/PvPIndexBattles/state/<uuid>.yml` so it survives a server crash — players are restored to their saved state on next login.
+State is also written to `plugins/PvPIndexBattles/state/<uuid>.yml` so it survives a server crash - players are restored to their saved state on next login.

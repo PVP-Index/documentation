@@ -1,6 +1,6 @@
 # Battle replay
 
-Every battle the plugin records is replayable — both inside Minecraft and on pvpindex.com. As a moderator you can use replays to verify suspicious wins, settle disputes, and review reports.
+Every battle the plugin records is replayable - both inside Minecraft and on pvpindex.com. As a moderator you can use replays to verify suspicious wins, settle disputes, and review reports.
 
 ## In-game playback
 

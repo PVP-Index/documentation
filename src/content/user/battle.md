@@ -33,11 +33,11 @@ The target player receives a clickable chat message with **Accept** and **Declin
 /battle decline <id>     # decline
 ```
 
-On a Velocity-connected network you can challenge players on other servers — they receive the invite on their server and are transferred to yours when they accept.
+On a Velocity-connected network you can challenge players on other servers - they receive the invite on their server and are transferred to yours when they accept.
 
 ## What happens during a battle
 
-- You're moved to a fresh arena instance — no risk to your survival inventory.
+- You're moved to a fresh arena instance - no risk to your survival inventory.
 - The kit for the chosen game mode is given to you automatically.
 - The battle ends when one side is eliminated, the timer expires, or someone disconnects.
 
@@ -65,7 +65,7 @@ Every battle you fight shows up on your profile at:
 pvpindex.com/players/<your-username>
 ```
 
-Even if you haven't claimed your account yet — the profile exists, it's just unlinked.
+Even if you haven't claimed your account yet - the profile exists, it's just unlinked.
 
 ## Replays
 

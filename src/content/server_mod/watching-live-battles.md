@@ -1,6 +1,6 @@
 # Watching live battles
 
-Sometimes a recording isn't enough — you want to watch the fight as it happens. The `/pvpmod watch` command teleports you in as a silent spectator without joining the queue or the battle itself.
+Sometimes a recording isn't enough - you want to watch the fight as it happens. The `/pvpmod watch` command teleports you in as a silent spectator without joining the queue or the battle itself.
 
 ## Spectating a player
 
@@ -18,7 +18,7 @@ If the player is **not** currently in a battle, the command tells you so and doe
 /pvpmod watch <battle-uuid>
 ```
 
-Useful when responding to a report — paste the battle UUID from the dispute thread to be dropped straight in.
+Useful when responding to a report - paste the battle UUID from the dispute thread to be dropped straight in.
 
 ## Auto-spectate on report
 
