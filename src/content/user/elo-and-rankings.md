@@ -1,6 +1,6 @@
 # ELO & rankings
 
-PvPIndex uses a single, transparent **ELO** formula across every game mode. There is no secret sauce: the math is the same one used by chess, with one extra knob — the trust score of the server you played on.
+PvPIndex uses a single, transparent **ELO** formula across every game mode. There is no secret sauce: the math is the same one used by chess, with one extra knob - the trust score of the server you played on.
 
 ## Where you start
 
@@ -16,7 +16,7 @@ delta    = K * trust_factor * (actual - expected)
 new_elo  = old_elo + delta
 ```
 
-- `K = 32` — the standard chess K-factor. Wins against much higher-rated players give large gains; wins against much lower-rated players give small gains.
+- `K = 32` - the standard chess K-factor. Wins against much higher-rated players give large gains; wins against much lower-rated players give small gains.
 - `actual` is `1.0` for a win, `0.5` for a draw, `0.0` for a loss.
 - `trust_factor` is `server.trust_score / 100`, so a fully-trusted server applies the full delta, a half-trusted one applies half, and an **unverified** server applies **zero** ELO change.
 
@@ -32,13 +32,13 @@ PvPIndex needs to be confident the battle actually happened the way the server r
 
 ## Per-game-mode ELO
 
-ELO is tracked **per game mode**, not globally. You can be Diamond in Crystal PvP and Silver in Vanilla — they're independent rankings.
+ELO is tracked **per game mode**, not globally. You can be Diamond in Crystal PvP and Silver in Vanilla - they're independent rankings.
 
 The "global" leaderboard at [pvpindex.com/leaderboards](https://pvpindex.com/leaderboards) takes a weighted average across modes, weighted by the number of battles you've played in each.
 
 ## Ranks (Bronze, Silver, Gold, …)
 
-Each game mode has named ELO **bands** managed by the admin team. They're mostly cosmetic — they give you something more memorable than a number. Typical layout:
+Each game mode has named ELO **bands** managed by the admin team. They're mostly cosmetic - they give you something more memorable than a number. Typical layout:
 
 | Rank | ELO range |
 | --- | --- |
@@ -54,6 +54,6 @@ Exact ranges differ per game mode. See the game mode detail page on the website.
 
 ## Inactivity
 
-Currently ELO does **not** decay with inactivity. Take a month off — your rating will be exactly where you left it. This may change; if it does, the rule will be announced and there will be a soft-launch period.
+Currently ELO does **not** decay with inactivity. Take a month off - your rating will be exactly where you left it. This may change; if it does, the rule will be announced and there will be a soft-launch period.
 
 > TODO: Document the planned "provisional rating" period for new accounts (first 10 battles use a higher K-factor).

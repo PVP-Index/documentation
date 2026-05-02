@@ -22,7 +22,7 @@ The chain is ordered: anti-cheat only runs after ELO has been applied, so a flag
 
 ## Idempotency
 
-Every job is keyed by battle UUID + step. Re-running a single job after a crash is safe — duplicate ELO will not be applied. This is what makes the **Rollback** moderation action possible: it dispatches a `RollbackBattleElo` job that is itself idempotent.
+Every job is keyed by battle UUID + step. Re-running a single job after a crash is safe - duplicate ELO will not be applied. This is what makes the **Rollback** moderation action possible: it dispatches a `RollbackBattleElo` job that is itself idempotent.
 
 ## Observability
 
@@ -36,7 +36,7 @@ Access is restricted to admins. You can see job throughput per queue, failed job
 
 ## Webhooks (planned)
 
-PvPIndex does not currently expose outbound webhooks — third-party services that want near-realtime battle data must poll `GET /battles?since=...`.
+PvPIndex does not currently expose outbound webhooks - third-party services that want near-realtime battle data must poll `GET /battles?since=...`.
 
 A planned webhook surface will let server developers register a URL to receive `battle.confirmed`, `battle.disputed`, and `season.archived` events with HMAC-signed bodies. There is no firm timeline; track [the GitHub roadmap](https://github.com/PVP-Index) for updates.
 

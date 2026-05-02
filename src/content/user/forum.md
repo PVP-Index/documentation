@@ -10,13 +10,13 @@ You need a website account to post (see [Creating an account](/user/creating-an-
 
 ## Boards
 
-The forum is organised into **boards**. Each board has its own rules pinned at the top — read those before you post.
+The forum is organised into **boards**. Each board has its own rules pinned at the top - read those before you post.
 
 Typical boards:
 
 | Board | What goes here |
 | --- | --- |
-| Announcements | Read-only — official updates from the PvPIndex team. |
+| Announcements | Read-only - official updates from the PvPIndex team. |
 | General | Anything PvPIndex-related that doesn't fit the other boards. |
 | Strategy & Guides | Game-mode-specific tips, kit theory-crafting, write-ups. |
 | Highlights | Clips, screenshots, "watch this dispute" links. |
@@ -30,7 +30,7 @@ The exact list of boards is maintained by the admin team and may differ from the
 
 1. Open a board.
 2. Click **New post** in the top right.
-3. Write your title and body. The editor supports markdown — fenced code blocks, inline code, links, images.
+3. Write your title and body. The editor supports markdown - fenced code blocks, inline code, links, images.
 4. Submit.
 
 Posts are visible to everyone immediately. There is no pre-moderation queue.
@@ -41,7 +41,7 @@ Click any post to read it and reply. Replies appear in chronological order. Quot
 
 ## Reactions
 
-You can leave a single reaction per post or comment (👍 / 👎 / ❤️ / 😄). Reactions are public — others can see who left them.
+You can leave a single reaction per post or comment (👍 / 👎 / ❤️ / 😄). Reactions are public - others can see who left them.
 
 ## Moderation
 
@@ -49,7 +49,7 @@ Anything you post can be reported with the flag icon on the post or comment. Mod
 
 ## Bumping
 
-There is **no** bump mechanic — the boards sort by **last reply** by default, so a fresh comment naturally moves a thread to the top. Posting "bump" with no content adds no value and may be hidden.
+There is **no** bump mechanic - the boards sort by **last reply** by default, so a fresh comment naturally moves a thread to the top. Posting "bump" with no content adds no value and may be hidden.
 
 ## Direct messages
 

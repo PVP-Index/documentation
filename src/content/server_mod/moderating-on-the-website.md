@@ -39,15 +39,15 @@ Posts and comments reported by users land here. You can:
 
 Path: **/moderation/audit-log**
 
-Every moderation action — battles approved/rejected/rolled back, users suspended, forum content hidden, API applications approved — is recorded with timestamp, actor, target, and payload. Use it to track team activity and review controversial decisions.
+Every moderation action - battles approved/rejected/rolled back, users suspended, forum content hidden, API applications approved - is recorded with timestamp, actor, target, and payload. Use it to track team activity and review controversial decisions.
 
 ## Admin-only panels
 
 These appear under the same menu only for users with the `admin` global role:
 
-- **API applications** — review and approve/reject server access requests.
-- **Servers** — mark servers as verified, adjust trust score, suspend.
-- **Game modes** — create, rename, slug-change, soft-delete game modes.
-- **Seasons** — start a new season; archive (soft-reset) the current one.
+- **API applications** - review and approve/reject server access requests.
+- **Servers** - mark servers as verified, adjust trust score, suspend.
+- **Game modes** - create, rename, slug-change, soft-delete game modes.
+- **Seasons** - start a new season; archive (soft-reset) the current one.
 
 > TODO: Add screenshots of each panel and a short Loom-style video tour.

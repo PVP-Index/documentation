@@ -17,7 +17,7 @@ Retry-After: 30
 { "message": "Too many requests." }
 ```
 
-Always honour `Retry-After` — it is set in seconds.
+Always honour `Retry-After` - it is set in seconds.
 
 ## Per-token limits (authenticated endpoints)
 
@@ -28,7 +28,7 @@ Always honour `Retry-After` — it is set in seconds.
 
 ## Burst tolerance
 
-The limiter uses a leaky-bucket — short bursts above the steady-state rate are allowed as long as you stay under the per-minute cap. If you regularly need higher throughput (e.g. you operate a network of servers), apply for a quota increase via your server detail page.
+The limiter uses a leaky-bucket - short bursts above the steady-state rate are allowed as long as you stay under the per-minute cap. If you regularly need higher throughput (e.g. you operate a network of servers), apply for a quota increase via your server detail page.
 
 ## Common error responses
 
@@ -39,7 +39,7 @@ The limiter uses a leaky-bucket — short bursts above the steady-state rate are
 | 403 | `unauthorised` | Token is valid but lacks scope for this endpoint (e.g. user token submitting battles). |
 | 404 | `not_found` | Resource does not exist or has been soft-deleted. |
 | 409 | `duplicate_uuid` | Submitting a battle with a `uuid` that is already recorded. |
-| 422 | `unprocessable` | Business-rule violation — e.g. `started_at > ended_at`. |
+| 422 | `unprocessable` | Business-rule violation - e.g. `started_at > ended_at`. |
 | 429 | `too_many_requests` | Rate limit hit. Honour `Retry-After`. |
 | 500 | `server_error` | Unhandled error. Safe to retry with exponential backoff. |
 | 503 | `maintenance` | Planned downtime. The body's `Retry-After` will be set; usually < 5 min. |
@@ -49,6 +49,6 @@ The limiter uses a leaky-bucket — short bursts above the steady-state rate are
 1. **Always send `Authorization` over HTTPS.** The API rejects plain HTTP.
 2. **Retry only idempotent calls.** All `GET` and `POST /battles/{uuid}/{confirm,dispute}` are idempotent. `POST /battles` is idempotent on `uuid` (you'll get `409 duplicate_uuid` instead of a duplicate row).
 3. **Backoff exponentially** on `5xx` and `429`. The plugin uses 5 s, 15 s, 45 s, capped at 5 min.
-4. **Log the response body**, not just the status — `errors` is the actionable bit on a 400/422.
+4. **Log the response body**, not just the status - `errors` is the actionable bit on a 400/422.
 
 > TODO: Publish per-endpoint quotas (some heavy endpoints have stricter limits than the per-token defaults shown above).

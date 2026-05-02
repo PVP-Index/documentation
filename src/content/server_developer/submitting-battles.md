@@ -63,13 +63,13 @@ pending  ──confirm──▶  confirmed  ──dispute──▶  disputed
 | pending | confirmed | `POST /battles/{uuid}/confirm` (auto-fired by the plugin after `auto_submit.delay_seconds`) |
 | pending or confirmed | disputed | `POST /battles/{uuid}/dispute` from a participant or moderator |
 | disputed | confirmed | Moderator clicks **Approve** on /moderation/battles |
-| disputed | (terminal) | Moderator clicks **Reject** — ELO rolled back, battle stays as a record |
+| disputed | (terminal) | Moderator clicks **Reject** - ELO rolled back, battle stays as a record |
 
 When a battle becomes `confirmed`, the API dispatches a job chain:
 
-1. `ProcessEloBattle` — applies the ELO delta and writes a `RankingHistory` row.
-2. `RunAutoAntiCheat` — flags suspicious patterns; may transition the battle to `disputed`.
-3. `RecalculateServerRating` — updates the server's `rating` and `trust_score`.
+1. `ProcessEloBattle` - applies the ELO delta and writes a `RankingHistory` row.
+2. `RunAutoAntiCheat` - flags suspicious patterns; may transition the battle to `disputed`.
+3. `RecalculateServerRating` - updates the server's `rating` and `trust_score`.
 
 ## Confirming a battle
 
@@ -78,7 +78,7 @@ curl -X POST https://api.pvpindex.com/battles/<uuid>/confirm \
   -H "Authorization: Bearer <server-token>"
 ```
 
-Idempotent — calling it again on a confirmed battle is a no-op.
+Idempotent - calling it again on a confirmed battle is a no-op.
 
 ## Disputing a battle
 

@@ -6,9 +6,9 @@ Players can flag a problem in two places: an in-game `/report` after a match, or
 
 A battle moves through three statuses:
 
-1. **pending** — recorded, not yet confirmed. ELO is not applied.
-2. **confirmed** — automatically promoted after a short window if no party objects. ELO is applied.
-3. **disputed** — at least one party has objected. ELO change (if any) is paused or rolled back pending a moderator decision.
+1. **pending** - recorded, not yet confirmed. ELO is not applied.
+2. **confirmed** - automatically promoted after a short window if no party objects. ELO is applied.
+3. **disputed** - at least one party has objected. ELO change (if any) is paused or rolled back pending a moderator decision.
 
 Disputes can be raised on any battle for as long as it is editable (typically the season it occurred in).
 
@@ -47,6 +47,6 @@ Every action is recorded in the audit log under `auditable_type=battle, auditabl
 - Always read the dispute thread before deciding.
 - Watch the replay (in-game `/pvpmod replay <uuid>` or the web player) before deciding.
 - Post a one-line public reason for your decision in the dispute thread.
-- For unclear cases, prefer **Approve** unless there is concrete evidence — disputed battles with no evidence should resolve in favour of the recorded outcome.
+- For unclear cases, prefer **Approve** unless there is concrete evidence - disputed battles with no evidence should resolve in favour of the recorded outcome.
 
 > TODO: Add screenshots of the /moderation/battles dashboard.
