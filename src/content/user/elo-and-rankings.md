@@ -56,4 +56,4 @@ Exact ranges differ per game mode. See the game mode detail page on the website.
 
 Currently ELO does **not** decay with inactivity. Take a month off - your rating will be exactly where you left it. This may change; if it does, the rule will be announced and there will be a soft-launch period.
 
-> TODO: Document the planned "provisional rating" period for new accounts (first 10 battles use a higher K-factor).
+A **provisional rating** period for new accounts is planned but not yet active. When it launches, new players' first battles will use a higher K-factor so their rating converges to its true level faster. This page will be updated when it ships.

@@ -2,6 +2,14 @@
 
 Every setting lives in `plugins/PvPIndexBattles/config.yml`. This page covers the keys you are most likely to change. Defaults are sensible - most owners only set `api.api_key`, `server.id`, and a few `enabled_*` lists.
 
+## Language
+
+```yaml
+language: "en"
+```
+
+Sets the language for all player-facing messages. The plugin loads `plugins/PvPIndexBattles/lang/<code>.yml` at startup. Bundled codes: `en`, `de`, `nl`, `es`, `pl`, `zh`. See [Language customisation](/server_owner/language-customization) for overriding messages or adding your own translation.
+
 ## API connection
 
 ```yaml
@@ -184,7 +192,9 @@ proxy:
   heartbeat_interval_ticks: 200
 ```
 
-Enable this only if you are running the **Velocity PvPIndex plugin** on your proxy for cross-server challenges and player transfers. See [Proxy setup](/server_owner/proxy-setup).
+Enable this when you are running the **Velocity** or **BungeeCord** proxy plugin for cross-server challenges and player transfers.
 
-- **secret** - must match the `secret` in the Velocity plugin's config.
+- **secret** - must match `paper_secret` in the proxy plugin's `config.properties`.
 - **heartbeat_interval_ticks** - how often the Paper backend pings the proxy (default 10 seconds).
+
+See [Proxy setup (Velocity)](/server_owner/proxy-setup) or [Proxy setup (BungeeCord)](/server_owner/proxy-setup-bungeecord) for the full walkthrough. For multi-proxy Redis networks see [Multi-proxy setup](/server_owner/multi-proxy-setup).
