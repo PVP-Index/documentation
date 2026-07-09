@@ -19,6 +19,9 @@ These update in real time as battles progress.
 | `%pvpindex_queued%` | `true` if the player is in the matchmaking queue |
 | `%pvpindex_queued_mode%` | The mode ID they queued for (e.g. `sword`), or `none` |
 | `%pvpindex_battle_type%` | Their current battle type (`DUEL`, `TEAM_BATTLE`, etc.), or empty if not in battle |
+| `%pvpindex_battle_id%` | Full UUID of the active battle, or empty if not in battle |
+| `%pvpindex_short_battle_id%` | First segment of the active battle UUID, or empty if not in battle |
+| `%pvpindex_battle_short_id%` | Current game mode plus the first segment of the active battle UUID (e.g. `mace-550e8400`), or empty if not in battle |
 
 ## ELO & rank (cached)
 
@@ -51,6 +54,15 @@ These counters are tracked in memory since the plugin loaded. They are reset whe
 | `%pvpindex_losses%` | Total losses |
 | `%pvpindex_draws%` | Total draws |
 | `%pvpindex_kd%` | Kill/death ratio (2 decimal places). Returns wins as a string if losses are 0. |
+
+## Economy rewards (Vault)
+
+These require [Vault](https://www.spigotmc.org/resources/vault.34315/) and a compatible economy provider. They are empty (`0.00` / `0`) when economy rewards are disabled.
+
+| Placeholder | Returns |
+| --- | --- |
+| `%pvpindex_reward_last%` | The last reward amount received, e.g. `500.00` |
+| `%pvpindex_streak%` | Current win streak count |
 
 ## Example scoreboard (CMI / TAB)
 
